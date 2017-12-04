@@ -1,7 +1,7 @@
 'use strict';
 
 // COMMENT: How is this data utilized within our blog app? What is the structure of this data (your response should include the terms "object", "array", and "key/value pairs")?
-// PUT YOUR RESPONSE HERE
+// RESPONSE:  This "rawData" object array is what defines the content of our blog app articles. The array uses key/value pairs (ex. title: 'Bacon Ipsum',) to store multiple values in a single object.
 
 let rawData = [
   {
