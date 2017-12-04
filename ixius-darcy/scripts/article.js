@@ -14,7 +14,6 @@ this.author = rawDataObj.author;
 this.authorUrl= rawDataObj.authorUrl;
 this.publishedOn = rawDataObj.publishedOn;
 this.body = rawDataObj.body;
-
 }
 
 Article.prototype.toHtml = function() {
@@ -39,7 +38,7 @@ Article.prototype.toHtml = function() {
   $newArticle.find('.byline a').text(this.author);
   $newArticle.find('.byline a').attr('href', 'this.authorURL').html(this.authorURL);
   $newArticle.find('.title').html(this.title);
-  $newArticle.find('.articles-body').text(this.body);
+  $newArticle.find('.article-body').html(this.body);
   $newArticle.find('.byline time').attr('datetime', 'this.publishedOn');
 
   // REVIEW: Display the date as a relative number of 'days ago'
@@ -55,10 +54,10 @@ rawData.sort(function(a,b) {
 
 // TODO: Refactor these for loops using the .forEach() array method.
 
-for(let i = 0; i < rawData.length; i++) {
-  articles.push(new Article(rawData[i]));
-}
+rawData.forEach(function(element) {
+  articles.push(new Article(element));
+});
 
-for(let i = 0; i < articles.length; i++) {
-  $('#articles').append(articles[i].toHtml());
-}
+articles.forEach(function(appendArticle) {
+  $('#articles').append(appendArticle.toHtml());
+});
